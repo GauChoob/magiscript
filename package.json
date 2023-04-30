@@ -1,0 +1,41 @@
+{
+  "name": "magiscript",
+  "displayName": "MagiScript",
+  "description": "MagiScript language for Magi-Nation game",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "mgi",
+        "aliases": [
+          "MagiScript",
+          "mgi"
+        ],
+        "extensions": [
+          ".mgi"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mgi",
+        "scopeName": "source.mgi",
+        "path": "./syntaxes/mgi.tmLanguage.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/GauChoob/magination.git"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.19.0"
+  }
+}

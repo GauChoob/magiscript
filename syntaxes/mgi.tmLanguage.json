@@ -1,0 +1,125 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MagiScript",
+	"scopeName": "source.mgi",
+	"patterns": [
+		{ "include": "#expression" }
+	],
+	"repository": {
+		"comment": {
+			"patterns": [{
+				"name": "comment.line.mgi",
+				"match": "\\s*;.*"
+			}]
+		},
+		"expression": {
+			"patterns": [
+				{ "include": "#comment" },
+				{ "include": "#align" },
+				{ "include": "#label" },
+				{ "include": "#func" },
+				{ "include": "#block" }
+			]
+		},
+		"align": {
+			"patterns": [{
+				"begin": "\\b(Align)(\\[)",
+				"end": "\\]",
+				"beginCaptures": {
+					"1": { "name": "keyword.control.mgi" },
+					"2": { "name": "punctuation.paren.open.mgi" }
+				},
+				"endCaptures": {
+					"1": { "name": "punctuation.paren.close.mgi" }
+				},
+				"patterns": [
+					{ "include": "#colon" },
+					{ "include": "#number" }
+				]
+			}]
+		},
+		"colon": {
+			"patterns": [{
+				"name": "punctuation.separator.mgi",
+				"match": ":"
+			}]
+		},
+		"label": {
+			"patterns": [{
+				"match": "([\\.]?[a-zA-Z_][\\w.]*)(:(:)?)",
+				"captures": {
+					"1": { "name": "variable.other.mgi" },
+					"2": { "name": "punctuation.section.mgi" }
+				}
+			}]
+		},
+		"func": {
+			"patterns": [{
+				"begin": "\\b([a-zA-Z_]\\w*)(\\()",
+				"beginCaptures": {
+					"1": { "name": "entity.name.function.mgi" },
+					"2": { "name": "punctuation.paren.open.mgi" }
+				},
+				"end": "\\)",
+				"endCaptures": {
+					"0": { "name": "punctuation.paren.close.mgi" }
+				},
+				"patterns": [
+					{ "include": "#comment" },
+					{ "include": "#param" },
+					{
+						"name": "punctuation.separator.js",
+						"match": ","
+					}
+				]
+			}]
+		},
+		"param": {
+			"patterns": [
+				{ "include": "#comment" },
+				{ "include": "#math" },
+				{ "include": "#string" },
+				{ "include": "#number" },
+				{ "include": "#keyword" },
+				{ "include": "#shorthand" },
+				{ "include": "#implicit_literal" }
+			]
+		},
+		"keyword": {
+			"patterns": [{
+				"name": "entity.name.class.mgi",
+				"match": "\\s*\\b(AI_|ATTRTILE_|BITSET_|PAL_|SCRIPT_|SCROLLER_|SONGID_|w|x|h)\\w*\\b"
+			}]
+		},
+		"shorthand": {
+			"patterns": [{
+				"name": "entity.name.class.mgi",
+				"match": "\\s*\\b(WHITE_A|WHITE)\\b"
+			}]
+		},
+		"string": {
+			"name": "string.quoted.double.mgi",
+			"begin": "\\s*\\\"",
+			"end": "\\\"",
+			"contentName": "string.mgi"
+		},
+		"math": {
+			"name": "string.quoted.double.other.mgi",
+			"begin": "\\s*#",
+			"end": "#",
+			"contentName": "math.mgi"
+		},
+		"number": {
+			"patterns": [{
+				"name": "constant.numeric.mgi",
+				"match": "\\s*(\\$[\\dA-Fa-f]+|\\%[01]+|\\d+)"
+			}]
+		},
+		"implicit_literal": {
+			"patterns": [{
+				"name": "constant.other.mgi",
+				"match": "\\s*[^`(),#\\[\\]]+"
+			}]
+		}
+	}
+}
