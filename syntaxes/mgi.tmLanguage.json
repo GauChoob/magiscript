@@ -112,7 +112,7 @@
 		"number": {
 			"patterns": [{
 				"name": "constant.numeric.mgi",
-				"match": "\\s*(\\$[\\dA-Fa-f]+|\\%[01]+|\\d+)"
+				"match": "\\s*[+-]?(\\$[\\dA-Fa-f]+|\\%[01]+|\\d+)"
 			}]
 		},
 		"implicit_literal": {

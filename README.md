@@ -6,10 +6,14 @@ To add the extension, download the repository then run the following command-lin
 
         npm install
         npx vsce package
-        code --install-extension magiscript-1.0.0.vsix
+        code --install-extension magiscript-1.0.1.vsix
 
 ## Release Notes
 
 ### 1.0.0
 
 Initial release
+
+### 1.0.1
+
+Support negative numbers
