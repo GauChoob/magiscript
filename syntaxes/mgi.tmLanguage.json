@@ -88,7 +88,7 @@
 		"keyword": {
 			"patterns": [{
 				"name": "entity.name.class.mgi",
-				"match": "\\s*\\b(AI_|ATTRTILE_|BITSET_|PAL_|SCRIPT_|SCROLLER_|SONGID_|Expr_|w|x|h)\\w*\\b"
+				"match": "\\s*\\b(AI_|ATTRTILE_|BITSET_|PAL_|SCRIPT_|SCROLLER_|SONGID_|SPRITE_|Expr_|w|x|h)\\w*\\b"
 			}]
 		},
 		"shorthand": {

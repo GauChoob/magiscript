@@ -20,4 +20,4 @@ Support negative numbers
 
 ### 1.0.2
 
-Add some keywords: Expr_
+Add some keywords: Expr_, SPRITE_
