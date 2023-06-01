@@ -24,4 +24,4 @@ Add some keywords: Expr_, SPRITE_
 
 ### 1.0.3
 
-Add some keywords: BITMAP_
+Add some keywords: BITMAP_, FIGHTSCENE_. Removed SCROLLER_
